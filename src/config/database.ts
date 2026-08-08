@@ -10,6 +10,6 @@ export async function connectDatabase(): Promise<void> {
     } catch (error) {
         logger.error(error);
 
-        process.exit(1);
+        throw error
     }
 }

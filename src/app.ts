@@ -54,11 +54,6 @@ app.use(notFound);
 
 app.use(errorHandler);
 
-// const PORT = process.env.PORT || 5000;
 
-// // "0.0.0.0" opens Express to all devices on your Wi-Fi network
-// app.listen(Number(PORT), "0.0.0.0", () => {
-//     console.log(`🚀 Server running on http://192.168.254.14:${PORT}`);
-// });
 
 export default app;
