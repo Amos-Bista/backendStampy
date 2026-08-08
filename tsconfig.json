@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "CommonJS",
-    "moduleResolution": "Node",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "rootDir": ".",
+    "rootDir": "./src",
     "outDir": "./dist",
     "strict": true,
     "skipLibCheck": true,
@@ -16,14 +16,13 @@
     ]
   },
   "include": [
-    "src/**/*.ts",
-    "api/**/*.ts"
+    "src/**/*.ts"
   ],
   "exclude": [
     "node_modules",
     "dist",
+    "api",
     "eslint.config.mts",
-    "eslint.config.mjs",
-    "eslint.config.mjs.map"
+    "eslint.config.mjs"
   ]
 }
