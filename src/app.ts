@@ -22,12 +22,7 @@ const app = express();
 
 app.use(
     cors({
-        origin:
-            [
-                "http://localhost:5173",
-                "http://192.168.254.11:5173", // Allow requests from your mobile phone
-            ],
-
+        origin: process.env.FRONTEND_URL || 'http://localhost:5173',
         credentials: true,
     })
 );
@@ -59,11 +54,11 @@ app.use(notFound);
 
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 5000;
+// const PORT = process.env.PORT || 5000;
 
-// "0.0.0.0" opens Express to all devices on your Wi-Fi network
-app.listen(Number(PORT), "0.0.0.0", () => {
-    console.log(`🚀 Server running on http://192.168.254.14:${PORT}`);
-});
+// // "0.0.0.0" opens Express to all devices on your Wi-Fi network
+// app.listen(Number(PORT), "0.0.0.0", () => {
+//     console.log(`🚀 Server running on http://192.168.254.14:${PORT}`);
+// });
 
 export default app;
