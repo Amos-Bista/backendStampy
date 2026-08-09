@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { BusinessCategory } from '../business/business.enums';
+import { BusinessCategory } from './business.enums.js';
 
 export const createBusinessSchema = z.object({
     name: z.string().min(2),

@@ -1,5 +1,5 @@
-import BusinessModel from './business.model';
-import { CreateBusinessDto } from '../business/business.validation';
+import BusinessModel from './business.model.js';
+import { CreateBusinessDto } from '../business/business.validation.js';
 
 export class BusinessRepository {
     async create(data: CreateBusinessDto) {

@@ -1,8 +1,5 @@
 import { Router } from "express";
-import customerController from "../modules/customer/customer.controller";
-// import customerController from "./customer.controller";
-// import validateRequest from "../../middlewares/validateRequest";
-// import { createCustomerSchema, updateCustomerSchema } from "./customer.validation";
+import customerController from "../modules/customer/customer.controller.js";
 
 const CustomerRouter = Router();
 

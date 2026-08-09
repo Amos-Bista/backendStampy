@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import businessService from './business.service';
+import businessService from './business.service.js';
 // console.log('Request body:',); // Log the request body for debugging
 
 class BusinessController {

@@ -1,6 +1,6 @@
 // import stampRepository from "./stamp.repository";
 
-import stampRepository from "./stamp.repository";
+import stampRepository from "./stamp.repository.js";
 
 
 // console.log("🔥 STAMP SERVICE LOADED");

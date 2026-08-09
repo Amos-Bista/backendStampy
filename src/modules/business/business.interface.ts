@@ -5,7 +5,7 @@ import {
     StampApprovalMode,
     SubscriptionPlan,
     SubscriptionStatus,
-} from '../business/business.enums';
+} from './business.enums.js';
 
 export interface IAddress {
     country: string;

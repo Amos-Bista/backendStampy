@@ -1,12 +1,7 @@
 import { Schema, model } from 'mongoose';
-import {
-    BusinessCategory,
-    BusinessStatus,
-    StampApprovalMode,
-    SubscriptionPlan,
-    SubscriptionStatus,
-} from './business.enums';
-import { IBusiness } from '../business/business.interface';
+import { BusinessCategory, BusinessStatus, StampApprovalMode, SubscriptionPlan, SubscriptionStatus } from './business.enums.js';
+import { IBusiness } from './business.interface.js';
+
 
 const AddressSchema = new Schema(
     {

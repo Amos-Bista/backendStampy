@@ -1,10 +1,7 @@
 import { Router } from "express";
-import validateRequest from "../shared/middlewares/validateRequest";
-import { createStampSchema } from "../modules/stamp/stamp.validation";
-import stampController from "../modules/stamp/stamp.controller";
-// import stampController from "./stamp.controller";
-// import validateRequest from "../../shared/middlewares/validateRequest";
-// import { createStampSchema } from "./stamp.validation";
+import validateRequest from "../shared/middlewares/validateRequest.js";
+import { createStampSchema } from "../modules/stamp/stamp.validation.js";
+import stampController from "../modules/stamp/stamp.controller.js";
 
 const stampRouter = Router();
 

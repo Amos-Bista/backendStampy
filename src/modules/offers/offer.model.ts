@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import { IOffer } from "./offer.interface";
+import { IOffer } from "./offer.interface.js";
 
 // console.log("📦 offer.model.ts loaded");
 
@@ -51,7 +51,7 @@ const offerSchema = new Schema<IOffer>(
     }
 );
 
-const OfferModel = mongoose.model<IOffer>("Offer", offerSchema);
+// const OfferModel = mongoose.model<IOffer>("Offer", offerSchema);
 
 // console.log("OfferModel:", OfferModel);
 // console.log("OfferModel.create:", (OfferModel as any).create);

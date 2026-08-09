@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import offerService from "./offer.service";
+import offerService from "./offer.service.js";
 
 class OfferController {
     private getParamValue(param: string | string[]): string {

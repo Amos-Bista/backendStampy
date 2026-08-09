@@ -1,14 +1,7 @@
 import { Request, Response, NextFunction } from "express";
-import stampService from "./stamp.service";
-// import stampService from "./stamp.service";
-
-
-console.log("stampService =", stampService);
-console.log("constructor =", stampService.constructor.name);
-console.log("keys =", Object.getOwnPropertyNames(Object.getPrototypeOf(stampService)));
+import stampService from "./stamp.service.js";
 
 class StampController {
-
 
     async claimStamp(req: Request, res: Response, next: NextFunction) {
         try {

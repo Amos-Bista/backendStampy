@@ -1,4 +1,4 @@
-import Offer from "./offer.model";
+import Offer from "./offer.model.js";
 
 
 // console.log("Offer =", Offer);

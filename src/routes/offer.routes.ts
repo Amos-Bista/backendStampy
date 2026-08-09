@@ -1,7 +1,10 @@
 import { Router } from "express";
-import validateRequest from "../shared/middlewares/validateRequest";
-import { createOfferSchema, updateOfferSchema } from "../modules/offers/offer.validation";
-import offerController from "../modules/offers/offer.controller";
+import validateRequest from "../shared/middlewares/validateRequest.js";
+import { createOfferSchema, updateOfferSchema } from "../modules/offers/offer.validation.js";
+import offerController from "../modules/offers/offer.controller.js";
+// import validateRequest from "../shared/middlewares/validateRequest";
+// import { createOfferSchema, updateOfferSchema } from "../modules/offers/offer.validation";
+// import offerController from "../modules/offers/offer.controller";
 // import offerController from "../modules/offers/offer.controller";
 
 // import offerController from "./offer.controller";

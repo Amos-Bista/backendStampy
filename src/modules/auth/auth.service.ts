@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
+import otpService from "./otp.service.js";
+import customerRepository from "../customer/customer.repository.js";
 
-import otpService from "./otp.service";
-import customerRepository from "../customer/customer.repository";
 
 class AuthService {
 

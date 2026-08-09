@@ -1,6 +1,5 @@
-import offerRepository from "./offer.repository";
+import offerRepository from "./offer.repository.js";
 
-// console.log("🔥 OFFER SERVICE LOADED");
 
 
 class OfferService {

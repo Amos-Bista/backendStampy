@@ -1,6 +1,6 @@
-// import Otp from "./otp.model";
 
-import otpModel from "./otp.model";
+import otpModel from "./otp.model.js";
+
 
 class OtpRepository {
 

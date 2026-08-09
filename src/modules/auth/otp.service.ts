@@ -1,11 +1,6 @@
 import bcrypt from "bcrypt";
-import otpRepository from "./otp.repository";
-import * as smsService from "./sms.service";
-// import { sendOtpSche ma } from "./auth.validation";
-
-// console.log("smsService:", smsService);
-// console.log("typeof smsService:", typeof smsService);
-// console.log("keys:", Object.keys(smsService));
+import otpRepository from "./otp.repository.js";
+import smsService from "./sms.service.js";
 
 class OtpService {
 
@@ -30,7 +25,7 @@ class OtpService {
             ),
         });
 
-        await smsService.default.sendOtp(
+        await smsService.sendOtp(
             phone,
             otp
         );

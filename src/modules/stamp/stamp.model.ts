@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import { IStamp } from "./stamp.interface";
+import { IStamp } from "./stamp.interface.js";
 
 const stampSchema = new Schema<IStamp>(
     {

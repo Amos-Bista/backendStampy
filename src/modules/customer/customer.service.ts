@@ -1,4 +1,4 @@
-import customerRepository from "./customer.repository";
+import customerRepository from "./customer.repository.js";
 
 class CustomerService {
 

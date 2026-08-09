@@ -1,14 +1,7 @@
 import { Router } from "express";
-
-import authController from "./auth.controller";
-
-// import validateRequest from "../../middlewares/validateRequest";
-
-import {
-    sendOtpSchema,
-    verifyOtpSchema,
-} from "./auth.validation";
-import validateRequest from "../../shared/middlewares/validateRequest";
+import validateRequest from "../../shared/middlewares/validateRequest.js";
+import { sendOtpSchema, verifyOtpSchema } from "./auth.validation.js";
+import authController from "./auth.controller.js";
 
 
 // console.log("Auth routes loaded");

@@ -1,4 +1,4 @@
-import Stamp from "./stamp.model";
+import Stamp from "./stamp.model.js";
 
 console.log("📦 stamp.repository loaded");
 

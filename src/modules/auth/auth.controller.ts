@@ -1,8 +1,6 @@
 import { Request, Response } from "express";
+import authService from "./auth.service.js";
 
-import authService from "./auth.service";
-
-// console.log("Imported authService:", authService);
 
 class AuthController {
 
