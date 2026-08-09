@@ -1,15 +1,15 @@
-import mongoose from 'mongoose';
-import { env } from './env.js';
-import logger from '../shared/logger/logger.js';
+import mongoose from "mongoose";
 
-export async function connectDatabase(): Promise<void> {
-    try {
-        await mongoose.connect(env.MONGO_URI);
+let isConnected = false;
 
-        logger.info('MongoDB Connected Successfully');
-    } catch (error) {
-        logger.error(error);
-
-        throw error
+export async function connectDatabase() {
+    if (isConnected) {
+        return;
     }
+
+    await mongoose.connect(process.env.MONGO_URI!);
+
+    isConnected = true;
+
+    console.log("MongoDB Connected Successfully");
 }
