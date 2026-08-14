@@ -1,4 +1,3 @@
-
 import otpModel from "./otp.model.js";
 
 

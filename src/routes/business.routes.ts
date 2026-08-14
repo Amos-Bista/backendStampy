@@ -5,10 +5,11 @@ import businessController from '../modules/business/business.controller.js';
 
 // console.log('businessController:', businessController);
 const router = Router();
-router.post('/', (req, res, next) => {
-    console.log('POST /api/v1/businesses hit');
-    next();
-}, businessController.create);
+
+// router.post('/', (req, res, next) => {
+//     console.log('POST /api/v1/businesses hit');
+//     next();
+// }, businessController.create);
 
 router.post('/', businessController.create);
 

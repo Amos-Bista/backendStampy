@@ -45,10 +45,18 @@ app.get('/health', (_, res) => {
 });
 
 
-app.get('/health', (_, res) => {
+app.get('/amos', (_, res) => {
     res.json({
         success: true,
-        message: 'Stamply API Running 🚀',
+        message: 'amos',
+    });
+});
+
+
+app.get('/', (_, res) => {
+    res.json({
+        success: true,
+        message: 'welcome Amos',
     });
 });
 
@@ -57,6 +65,10 @@ app.use("/api/v1/auth", authrouter);
 app.use("/api/v1/offers", offerRouter);
 app.use("/api/v1/stamps", stampRouter);
 app.use("/api/v1/customers", CustomerRouter);
+
+
+
+
 
 app.use(notFound);
 
