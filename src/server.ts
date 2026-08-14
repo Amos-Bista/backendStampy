@@ -14,7 +14,7 @@ async function bootstrap() {
 
         const server = http.createServer(app);
 
-        server.listen(env.PORT, () => {
+        server.listen(env.PORT, '0.0.0.0', () => {
             logger.info(
                 `🚀 Server running on http://localhost:${env.PORT}`,
             );
