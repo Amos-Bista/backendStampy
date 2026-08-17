@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import customerService from "./customer.service.js";
+import stampService from "../stamp/stamp.service.js";
 
 class CustomerController {
 
@@ -40,6 +41,36 @@ class CustomerController {
         return res.json({
             success: true,
         });
+    }
+
+    async getBusinessCustomers(req: Request, res: Response) {
+        try {
+            const businessId = (req as Request & { user?: { businessId?: string } }).user?.businessId;
+
+            if (!businessId) {
+                return res.status(401).json({
+                    success: false,
+                    message: "Unauthorized",
+                });
+            }
+
+            const customers =
+                await stampService.getCustomersByBusinessId(
+                    businessId
+                );
+
+            return res.status(200).json({
+                success: true,
+                data: {
+                    customers,
+                },
+            });
+        } catch (error: any) {
+            return res.status(500).json({
+                success: false,
+                message: error.message || 'Failed to fetch customers',
+            });
+        }
     }
 }
 

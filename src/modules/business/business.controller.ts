@@ -12,11 +12,13 @@ class BusinessController {
     async create(req: Request, res: Response) {
         // console.log('Request body:', req.body); // Log the request body for debugging
         const business = await businessService.createBusiness(req.body);
+        const token = (business as any)?.token;
 
         res.status(201).json({
             success: true,
             message: 'Business created successfully',
             data: business,
+            token,
         });
     }
 

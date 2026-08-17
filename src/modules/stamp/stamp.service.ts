@@ -27,6 +27,12 @@ class StampService {
         });
     }
 
+    async getCustomersByBusinessId(businessId: string) {
+        return stampRepository.findCustomersByBusinessId(
+            businessId
+        );
+    }
+
     createStamp(data: any) {
         return stampRepository.create(data);
     }

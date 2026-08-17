@@ -1,6 +1,7 @@
+import mongoose from "mongoose";
 import Stamp from "./stamp.model.js";
 
-console.log("📦 stamp.repository loaded");
+// console.log("📦 stamp.repository loaded");
 
 class StampRepository {
 
@@ -99,6 +100,38 @@ class StampRepository {
             offerId,
             createdAt: { $gte: timeLimit },
         });
+    }
+
+
+    async findCustomersByBusinessId(businessId: string) {
+        return Stamp.aggregate([
+            {
+                $match: {
+                    businessId: new mongoose.Types.ObjectId(businessId),
+                },
+            },
+            {
+                $group: {
+                    _id: "$customerId",
+                },
+            },
+            {
+                $lookup: {
+                    from: "customers",
+                    localField: "_id",
+                    foreignField: "_id",
+                    as: "customer",
+                },
+            },
+            {
+                $unwind: "$customer",
+            },
+            {
+                $replaceRoot: {
+                    newRoot: "$customer",
+                },
+            },
+        ]);
     }
 }
 

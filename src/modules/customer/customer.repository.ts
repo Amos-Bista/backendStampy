@@ -29,6 +29,9 @@ class CustomerRepository {
     delete(id: string) {
         return Customer.findByIdAndDelete(id);
     }
+
+
+
 }
 
 export default new CustomerRepository();

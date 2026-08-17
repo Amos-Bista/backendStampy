@@ -10,8 +10,38 @@ export class BusinessRepository {
         return BusinessModel.findById(id);
     }
 
+
     async findByEmail(email: string) {
-        return BusinessModel.findOne({ email });
+        return BusinessModel
+            .findOne({
+                email: email.toLowerCase().trim(),
+            })
+            .select("+password");
+    }
+
+    async findByPhone(phone: string) {
+        return BusinessModel
+            .findOne({
+                phone: phone.trim(),
+            })
+            .select("+password");
+    }
+
+    async findByEmailOrPhone(identifier: string) {
+        const value = identifier.trim();
+
+        return BusinessModel
+            .findOne({
+                $or: [
+                    {
+                        email: value.toLowerCase(),
+                    },
+                    {
+                        phone: value,
+                    },
+                ],
+            })
+            .select("+password");
     }
 
     async findBySlug(slug: string) {

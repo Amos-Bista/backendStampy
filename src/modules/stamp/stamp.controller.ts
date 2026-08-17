@@ -97,6 +97,48 @@ class StampController {
             total,
         });
     }
+
+
+    async getBusinessCustomers(
+        req: Request,
+        res: Response
+    ) {
+        try {
+            const businessId = req.user?.businessId;
+
+            if (!businessId) {
+                return res.status(401).json({
+                    success: false,
+                    message: "Business context is missing",
+                });
+            }
+
+            const customers =
+                await stampService.getCustomersByBusinessId(
+                    businessId
+                );
+
+            return res.status(200).json({
+                success: true,
+                data: {
+                    customers,
+                },
+            });
+
+        } catch (error: any) {
+            console.error(
+                'Get business customers error:',
+                error
+            );
+
+            return res.status(500).json({
+                success: false,
+                message:
+                    error.message ||
+                    'Failed to fetch customers',
+            });
+        }
+    }
 }
 
 export default new StampController();

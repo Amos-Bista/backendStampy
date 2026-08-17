@@ -69,10 +69,14 @@ const BusinessSchema = new Schema<IBusiness>(
 
         slug: {
             type: String,
-            required: true,
             unique: true,
             lowercase: true,
             trim: true,
+        },
+        password: {
+            type: String,
+            required: true,
+            select: false,
         },
 
         description: String,

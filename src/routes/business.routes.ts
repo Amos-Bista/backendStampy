@@ -11,7 +11,9 @@ const router = Router();
 //     next();
 // }, businessController.create);
 
-router.post('/', businessController.create);
+// router.post('/', businessController.create);
+
+router.post('/', (req, res) => businessController.create(req, res));
 
 router.get('/:id', businessController.get);
 

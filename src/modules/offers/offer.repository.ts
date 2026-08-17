@@ -11,11 +11,49 @@ class OfferRepository {
     create(data: any) {
         return Offer.create(data);
     }
-
     findAllByBusiness(businessId: string) {
-        return Offer.find({ businessId }).sort({
-            createdAt: -1,
-        });
+        console.log("=================================");
+        console.log("MongoDB OFFER DEBUG");
+        console.log("businessId received:", businessId);
+        console.log("businessId type:", typeof businessId);
+
+        return Offer.find({})
+            .then((allOffers) => {
+                console.log("TOTAL OFFERS IN DATABASE:", allOffers.length);
+
+                console.log(
+                    "ALL OFFER BUSINESS IDs:",
+                    allOffers.map((offer) => ({
+                        id: offer._id,
+                        title: offer.title,
+                        businessId: offer.businessId,
+                        businessIdType: typeof offer.businessId,
+                    }))
+                );
+
+                const matchingOffers = allOffers.filter(
+                    (offer) =>
+                        String(offer.businessId) ===
+                        String(businessId)
+                );
+
+                console.log(
+                    "MATCHING OFFERS:",
+                    matchingOffers.map((offer) => ({
+                        id: offer._id,
+                        title: offer.title,
+                        businessId: offer.businessId,
+                    }))
+                );
+
+                console.log("=================================");
+
+                return matchingOffers.sort(
+                    (a, b) =>
+                        new Date(b.createdAt).getTime() -
+                        new Date(a.createdAt).getTime()
+                );
+            });
     }
 
     findById(id: string) {

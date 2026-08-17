@@ -30,4 +30,6 @@ CustomerRouter.delete(
     customerController.delete
 );
 
+
+
 export default CustomerRouter;

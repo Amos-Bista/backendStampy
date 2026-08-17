@@ -26,4 +26,9 @@ authrouter.get("/test", (req, res) => {
     });
 });
 
+authrouter.post(
+    "/business/login",
+    authController.businessLogin
+);
+
 export default authrouter;

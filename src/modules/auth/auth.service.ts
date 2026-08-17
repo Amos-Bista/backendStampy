@@ -1,6 +1,9 @@
 import jwt from "jsonwebtoken";
+import bcrypt from "bcryptjs";
+
 import otpService from "./otp.service.js";
 import customerRepository from "../customer/customer.repository.js";
+import businessRepository from "../business/business.repository.js";
 
 
 class AuthService {
@@ -60,6 +63,67 @@ class AuthService {
         return {
             token,
             customer,
+        };
+    }
+
+
+    async businessLogin(
+        identifier: string,
+        password: string
+    ) {
+
+        console.log("LOGIN IDENTIFIER:", identifier);
+        console.log("LOGIN PASSWORD PROVIDED:", password);
+        const business =
+            await businessRepository.findByEmailOrPhone(
+                identifier
+            );
+        console.log("BUSINESS FOUND:", !!business);
+
+        if (!business) {
+            throw new Error("Invalid email/phone or password");
+        }
+        console.log("BUSINESS EMAIL:", business.email);
+        console.log("BUSINESS STATUS:", business.status);
+        console.log("PASSWORD EXISTS:", !!business.password);
+        console.log("PASSWORD PREFIX:", business.password?.substring(0, 7));
+
+        const isPasswordValid =
+            await bcrypt.compare(
+                password,
+                business.password
+            );
+
+        if (!isPasswordValid) {
+            throw new Error("Invalid email/phone or password");
+        }
+
+        if (business.status !== "ACTIVE") {
+            throw new Error(
+                "Business account is not active"
+            );
+        }
+
+        const token = jwt.sign(
+            {
+                id: business._id.toString(),
+                businessId: business._id.toString(),
+                role: "BUSINESS",
+            },
+            process.env.JWT_SECRET as string,
+            {
+                expiresIn: "7d",
+            }
+        );
+
+        const businessData =
+            business.toObject();
+
+        // delete businessData.password;
+
+        return {
+            token,
+            business: businessData,
         };
     }
 }

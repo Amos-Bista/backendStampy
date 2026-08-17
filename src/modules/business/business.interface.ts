@@ -50,6 +50,8 @@ export interface IBusiness extends Document {
 
     email: string;
 
+    password: string;
+
     phone: string;
 
     website?: string;
